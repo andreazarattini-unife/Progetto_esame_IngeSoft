@@ -4,10 +4,16 @@ from __future__ import annotations #permette di riferirsi a classi presenti anch
 
 import queue
 import threading
+import platform
 import tkinter as tk
-from ctypes import windll
 from pathlib import Path
 from tkinter import filedialog, scrolledtext, ttk
+
+
+if platform.system == "Windows":
+    from ctypes import windll
+else:
+    windll = None
 
 from zmtransform.analysis import analyze_measurements, create_result_workbook, find_input_files
 
@@ -143,6 +149,8 @@ class ZincApp:
 
 def configure_windows_dpi() -> None:
     """Improve Tkinter rendering on Windows when the API is available."""
+    if windll is None:
+        return
     try:
         windll.shcore.SetProcessDpiAwareness(1)
     except (AttributeError, OSError):
