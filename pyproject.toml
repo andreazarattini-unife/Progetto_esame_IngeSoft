@@ -1,0 +1,54 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "zmtransform"
+version = "0.1.0"
+description = "Applicazione desktop e batch per analizzare misure di zincatura BS/TS e generare un report Excel riepilogativo."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "openpyxl>=3.1.5",
+]
+
+[project.optional-dependencies]
+dev = [
+    "coverage[toml]>=7.6.0",
+    "hypothesis>=6.112.0",
+    "pylint>=3.3.0",
+    "pytest>=8.3.0",
+    "ruff>=0.8.0",
+]
+
+[project.scripts]
+zmtransform = "zmtransform.cli:main"
+zmtransform-gui = "zmtransform.gui:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/zmtransform"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+markers = [
+    "integration: test del flusso completo su file Excel temporanei",
+    "unit: test unitari su funzioni isolate",
+]
+
+[tool.coverage.run]
+branch = true
+source = ["src/zmtransform"]
+omit = ["src/zmtransform/gui.py"]
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = true
+fail_under = 80
+
+[tool.ruff]
+line-length = 100
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
