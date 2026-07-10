@@ -9,7 +9,7 @@ import tkinter as tk
 from pathlib import Path
 from tkinter import filedialog, scrolledtext, ttk
 
-
+#Robusto rispetto al tipo di OS
 if platform.system == "Windows":
     from ctypes import windll
 else:
@@ -95,7 +95,7 @@ class ZincApp:
             self.write_log("File Excel non trovato in cartella BS.")
             return
 
-        self.select_button["state"] = tk.DISABLED #disabilito il pulsante 
+        self.select_button["state"] = tk.DISABLED #disabilito il pulsante di selezione della cartella
         worker = threading.Thread(
             target=self.run_analysis, #Una volta selezionata la cartella, passo i due file all'analisi
             args=(bs_files, ts_files, Path(output_file)),
@@ -158,7 +158,7 @@ def configure_windows_dpi() -> None:
 
 
 def main() -> None:
-    """Start the desktop application."""
+    """Start dell'applicazione"""
     configure_windows_dpi()
     root = tk.Tk()
     ZincApp(root)
