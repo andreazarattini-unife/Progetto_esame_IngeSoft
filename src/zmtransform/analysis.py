@@ -37,7 +37,7 @@ class MeasurementFileError(ValueError):
 
 
 def find_input_files(input_dir: str | Path) -> tuple[list[Path], list[Path]]:
-    """Return sorted BS and TS Excel files contained in the selected directory."""
+    """Mette in ordine gli excel di BS e TS contenuti nella cartella passata come parametro"""
     base_dir = Path(input_dir)
     return (
         sorted((base_dir / "BS").glob("*.xlsx")),

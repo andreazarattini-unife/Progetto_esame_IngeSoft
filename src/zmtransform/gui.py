@@ -89,7 +89,7 @@ class ZincApp:
             self.write_log("File Excel non trovato in cartella BS.")
             return
 
-        self.select_button["state"] = tk.DISABLED
+        self.select_button["state"] = tk.DISABLED #disabilito il pulsante 
         worker = threading.Thread(
             target=self.run_analysis, #Una volta selezionata la cartella, passo i due file all'analisi
             args=(bs_files, ts_files, Path(output_file)),
