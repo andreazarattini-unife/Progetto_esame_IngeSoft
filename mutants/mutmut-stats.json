@@ -1,0 +1,81 @@
+{
+    "tests_by_mangled_function_name": {
+        "zmtransform.analysis.x_analyze_directory_to_workbook": [
+            "tests/integration/test_batch_pipeline.py::test_cli_writes_output_workbook",
+            "tests/integration/test_batch_pipeline.py::test_analyze_directory_to_workbook_matches_bs_and_ts",
+            "tests/integration/test_batch_pipeline.py::test_cli_main_parses_arguments_and_writes_output"
+        ],
+        "zmtransform.analysis.x_analyze_measurements": [
+            "tests/integration/test_batch_pipeline.py::test_cli_writes_output_workbook",
+            "tests/integration/test_batch_pipeline.py::test_analyze_directory_to_workbook_matches_bs_and_ts",
+            "tests/integration/test_batch_pipeline.py::test_cli_main_parses_arguments_and_writes_output"
+        ],
+        "zmtransform.analysis.x_read_measurement_file": [
+            "tests/unit/test_analysis.py::test_read_measurement_file_rejects_missing_sheet",
+            "tests/integration/test_batch_pipeline.py::test_cli_writes_output_workbook",
+            "tests/integration/test_batch_pipeline.py::test_analyze_directory_to_workbook_matches_bs_and_ts",
+            "tests/unit/test_analysis.py::test_read_measurement_file_calculates_summary",
+            "tests/integration/test_batch_pipeline.py::test_cli_main_parses_arguments_and_writes_output",
+            "tests/unit/test_analysis.py::test_create_result_workbook_writes_bs_and_ts_columns"
+        ],
+        "zmtransform.analysis.x_calculate_statistics": [
+            "tests/unit/test_analysis.py::test_numeric_values_ignore_none_in_middle",
+            "tests/integration/test_batch_pipeline.py::test_cli_writes_output_workbook",
+            "tests/integration/test_batch_pipeline.py::test_analyze_directory_to_workbook_matches_bs_and_ts",
+            "tests/unit/test_analysis.py::test_read_measurement_file_calculates_summary",
+            "tests/integration/test_batch_pipeline.py::test_cli_main_parses_arguments_and_writes_output",
+            "tests/unit/test_analysis.py::test_create_result_workbook_writes_bs_and_ts_columns",
+            "tests/unit/test_analysis.py::test_calculate_statistics_property"
+        ],
+        "zmtransform.analysis.x__numeric_values": [
+            "tests/unit/test_analysis.py::test_numeric_values_ignore_none_in_middle",
+            "tests/integration/test_batch_pipeline.py::test_cli_writes_output_workbook",
+            "tests/integration/test_batch_pipeline.py::test_analyze_directory_to_workbook_matches_bs_and_ts",
+            "tests/unit/test_analysis.py::test_read_measurement_file_calculates_summary",
+            "tests/integration/test_batch_pipeline.py::test_cli_main_parses_arguments_and_writes_output",
+            "tests/unit/test_analysis.py::test_create_result_workbook_writes_bs_and_ts_columns",
+            "tests/unit/test_analysis.py::test_calculate_statistics_property"
+        ],
+        "zmtransform.analysis.x_read_profile_values": [
+            "tests/integration/test_batch_pipeline.py::test_cli_writes_output_workbook",
+            "tests/unit/test_analysis.py::test_read_profile_values_does_not_depend_on_max_row",
+            "tests/unit/test_analysis.py::test_read_measurement_file_calculates_summary",
+            "tests/integration/test_batch_pipeline.py::test_analyze_directory_to_workbook_matches_bs_and_ts",
+            "tests/integration/test_batch_pipeline.py::test_cli_main_parses_arguments_and_writes_output",
+            "tests/unit/test_analysis.py::test_create_result_workbook_writes_bs_and_ts_columns"
+        ],
+        "zmtransform.analysis.x_find_input_files": [
+            "tests/integration/test_batch_pipeline.py::test_cli_writes_output_workbook",
+            "tests/integration/test_batch_pipeline.py::test_analyze_directory_to_workbook_matches_bs_and_ts",
+            "tests/integration/test_batch_pipeline.py::test_cli_main_parses_arguments_and_writes_output"
+        ],
+        "zmtransform.analysis.x_create_result_workbook": [
+            "tests/integration/test_batch_pipeline.py::test_cli_writes_output_workbook",
+            "tests/integration/test_batch_pipeline.py::test_analyze_directory_to_workbook_matches_bs_and_ts",
+            "tests/integration/test_batch_pipeline.py::test_cli_main_parses_arguments_and_writes_output",
+            "tests/unit/test_analysis.py::test_create_result_workbook_writes_bs_and_ts_columns"
+        ],
+        "zmtransform.cli.x_run": [
+            "tests/integration/test_batch_pipeline.py::test_cli_writes_output_workbook",
+            "tests/integration/test_batch_pipeline.py::test_cli_main_parses_arguments_and_writes_output"
+        ],
+        "zmtransform.cli.x_build_parser": [
+            "tests/integration/test_batch_pipeline.py::test_cli_main_parses_arguments_and_writes_output"
+        ],
+        "zmtransform.cli.x_main": [
+            "tests/integration/test_batch_pipeline.py::test_cli_main_parses_arguments_and_writes_output"
+        ]
+    },
+    "duration_by_test": {
+        "tests/integration/test_batch_pipeline.py::test_analyze_directory_to_workbook_matches_bs_and_ts": 0.014530477000107567,
+        "tests/integration/test_batch_pipeline.py::test_cli_writes_output_workbook": 0.015496935999976813,
+        "tests/integration/test_batch_pipeline.py::test_cli_main_parses_arguments_and_writes_output": 0.009254944999952386,
+        "tests/unit/test_analysis.py::test_read_measurement_file_calculates_summary": 0.005901352000023508,
+        "tests/unit/test_analysis.py::test_read_measurement_file_rejects_missing_sheet": 0.009595947999855525,
+        "tests/unit/test_analysis.py::test_read_profile_values_does_not_depend_on_max_row": 0.0052117850000286126,
+        "tests/unit/test_analysis.py::test_create_result_workbook_writes_bs_and_ts_columns": 0.011996779000014612,
+        "tests/unit/test_analysis.py::test_calculate_statistics_property": 0.0946413440001379,
+        "tests/unit/test_analysis.py::test_numeric_values_ignore_none_in_middle": 0.0006514280003102613
+    },
+    "stats_time": 0.70560492
+}

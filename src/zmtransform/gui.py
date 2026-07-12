@@ -21,6 +21,10 @@ from zmtransform.analysis import analyze_measurements, create_result_workbook, f
 class ZincApp:
     """Desktop application used to run zinc measurement analysis."""
 
+    #Si è impostata come applicazione "principale" la classe ZincApp, la quale fa partire la parte 
+    #grafica. Creato il botttone "selectdirectory", esso fa partire a catena tutto il giro di elaborazione
+    #dei dati.
+    
     #Creo una classe che contiene i dati della GUI, pulsanti, stato dell'applicazione e funzioni associate
     def __init__(self, root: tk.Tk) -> None: #Costruttore
         self.root = root

@@ -85,7 +85,7 @@ def test_create_result_workbook_writes_bs_and_ts_columns(tmp_path, workbook_fact
     assert sheet["E2"].value == 20.0
     assert sheet["K2"].value == 50.0
 
-#PROPERTY-BASED TESTING
+
 @pytest.mark.unit
 @given(
     st.lists(
