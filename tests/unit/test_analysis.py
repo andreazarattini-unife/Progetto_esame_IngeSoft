@@ -86,6 +86,8 @@ def test_create_result_workbook_writes_bs_and_ts_columns(tmp_path, workbook_fact
     assert sheet["K2"].value == 50.0
 
 #PROPERTY-BASED TESTING
+#funzione di test che evidenzia proprietà che devono sempre essere rispettate. 
+#vengono generati valori casuali di input da inserire dentro il decoratore given
 @pytest.mark.unit
 @given(
     st.lists(
@@ -114,3 +116,53 @@ def test_numeric_values_ignore_none_in_middle():
     assert result.minimum == 1.0
     assert result.maximum == 3.0
     assert result.average == pytest.approx(2.0)
+
+
+@pytest.mark.unit
+def test_numeric_values_is_not_number():
+    values = [1.0, True, 2.0]
+    with pytest.raises(MeasurementFileError):
+        calculate_statistics(values)
+
+@pytest.mark.unit
+def test_numeric_values_is_empty():
+    values = []
+    with pytest.raises(MeasurementFileError):
+        calculate_statistics(values)
+
+@pytest.mark.unit
+def test_read_profile_values_length_and_measurements_are_none(tmp_path, workbook_factory):
+    workbook_path = tmp_path / "coil.xlsx"
+    workbook_factory(workbook_path, measurements=[20.0])
+    workbook = openpyxl.load_workbook(workbook_path, read_only = False, data_only = True)
+    sheet = workbook["LengthProfiles"]
+    sheet["C2"].value = "dummy"
+    sheet["A2"].value = None
+    sheet["B2"].value = None
+    sheet["A3"].value = 10.0
+    sheet["B3"].value = 20.0
+    workbook.save(workbook_path)
+
+    workbook = openpyxl.load_workbook(workbook_path, read_only=True, data_only=True)
+    total_length, measurements = read_profile_values(workbook["LengthProfiles"], workbook_path)
+
+    assert total_length == 10.0
+    assert measurements == [20.0]
+
+@pytest.mark.unit
+def test_read_profile_values_are_empty(tmp_path, workbook_factory):
+    workbook_path = tmp_path / "coil.xlsx"
+    workbook_factory(workbook_path, measurements=[20.0])
+    workbook = openpyxl.load_workbook(workbook_path, read_only = False, data_only = True)
+    sheet = workbook["LengthProfiles"]
+    sheet["A2"].value = None
+    sheet["B2"].value = None
+    workbook.save(workbook_path)
+
+    workbook = openpyxl.load_workbook(workbook_path, read_only=True, data_only=True)
+    with pytest.raises(MeasurementFileError):
+        read_profile_values(workbook["LengthProfiles"], workbook_path)
+
+
+
+
