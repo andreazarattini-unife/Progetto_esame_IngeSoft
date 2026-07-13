@@ -4,6 +4,21 @@ Per conto di Marcegaglia Ravenna, il più grande stabilimento metallurgico del g
 
 ZMTransform è un’applicazione sviluppata in Python per l’analisi automatizzata delle misure di zincatura rilevate sui materiali lavorati. Il sistema consente di acquisire i dati provenienti dai file Excel generati dal processo produttivo, elaborarli in modo strutturato e produrre report riepilogativi utili al controllo qualità e all’analisi delle prestazioni del processo di zincatura.
 
+Il software gestisce separatamente le misure relative alle due superfici del coil:
+
+BS (Bottom Surface): lato inferiore del materiale;
+TS (Top Surface): lato superiore del materiale.
+
+Le principali funzionalità offerte dal sistema sono:
+
+Importazione automatica dei dati contenuti nei file Excel relativi alle misure di zincatura;
+Associazione delle misurazioni BS e TS appartenenti allo stesso coil tramite identificativo univoco (CoilID);
+Elaborazione automatica dei dati acquisiti, con calcolo di indicatori statistici descrittivi quali valori medi, deviazione standard, valori minimi e massimi;
+Analisi comparativa delle misure tra le due superfici del coil;
+Generazione automatica di un file Excel riepilogativo, contenente i risultati delle elaborazioni e le informazioni necessarie per la valutazione qualitativa del rivestimento.
+
+L’obiettivo principale di ZMTransform è fornire uno strumento affidabile, riproducibile e facilmente utilizzabile per supportare il monitoraggio del processo di zincatura, riducendo le attività manuali di analisi dei dati e migliorando la disponibilità delle informazioni a supporto del controllo qualità.
+
 ## Funzionalita'
 
 - Interfaccia desktop Tkinter per uso manuale.
