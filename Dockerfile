@@ -5,7 +5,7 @@ WORKDIR /app
 COPY pyproject.toml README.md ./
 COPY src ./src
 
-RUN python -m pip install --no-cache-dir .
+RUN python -m pip install --no-cache-dir --trusted-host pypi.org --trusted-host pypi.python.org --trusted-host files.pythonhosted.org .
 
-ENTRYPOINT ["zmtransform"]
+ENTRYPOINT ["python","main.py"]
 CMD ["--help"]
