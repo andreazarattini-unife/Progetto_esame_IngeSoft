@@ -53,8 +53,15 @@ skip_covered = true
 fail_under = 80
 
 [tool.ruff]
-line-length = 100
+line-length = 150
 src = ["src", "tests"]
+exclude = [
+    ".venv",
+    "__pycache__",
+    "build",
+    "dist",
+    "mutants"
+]
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "B", "UP"]

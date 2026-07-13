@@ -32,7 +32,8 @@ RESULT_HEADERS = (
 )
 
 
-from mutmut.mutation.trampoline import wrap_in_trampoline as _mutmut_mutated, MutantDict
+from mutmut.mutation.trampoline import MutantDict
+from mutmut.mutation.trampoline import wrap_in_trampoline as _mutmut_mutated
 
 
 class MeasurementFileError(ValueError):
@@ -4416,7 +4417,7 @@ def x_analyze_measurements__mutmut_7(
         try:
             ts_measurement = read_measurement_file(file_path)
             ts_measurements[ts_measurement.coil_id] = ts_measurement
-        except MeasurementFileError as exc:
+        except MeasurementFileError:
             errors.append(None)
 
     for file_path in data_bs:
@@ -4702,7 +4703,7 @@ def x_analyze_measurements__mutmut_16(
                     ts=ts_measurements.get(bs_measurement.coil_id),
                 )
             )
-        except MeasurementFileError as exc:
+        except MeasurementFileError:
             errors.append(None)
 
     return result_rows, errors

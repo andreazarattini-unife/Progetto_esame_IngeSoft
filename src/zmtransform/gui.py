@@ -1,10 +1,10 @@
 """Tkinter user interface for ZMTransform."""
 
-from __future__ import annotations #permette di riferirsi a classi presenti anche più avanti
+from __future__ import annotations  #permette di riferirsi a classi presenti anche più avanti
 
+import platform
 import queue
 import threading
-import platform
 import tkinter as tk
 from pathlib import Path
 from tkinter import filedialog, scrolledtext, ttk
@@ -16,7 +16,6 @@ else:
     windll = None
 
 from zmtransform.analysis import analyze_measurements, create_result_workbook, find_input_files
-from zmtransform.plot import Prova
 
 
 class ZincApp:

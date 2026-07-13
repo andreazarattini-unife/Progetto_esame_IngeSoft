@@ -4,8 +4,8 @@ on:
   push:
   pull_request:
 
-jobs:
-  quality:
+jobs: #ogni job è un workflow separato
+  quality: #crea un ambiente virtuale, installa le dipendenze e lancia i test
     name: Lint, test and coverage
     runs-on: ubuntu-latest
 

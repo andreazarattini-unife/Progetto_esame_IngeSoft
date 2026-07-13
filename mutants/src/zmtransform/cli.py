@@ -6,10 +6,11 @@ import argparse
 import sys
 from pathlib import Path
 
+from mutmut.mutation.trampoline import MutantDict
+from mutmut.mutation.trampoline import wrap_in_trampoline as _mutmut_mutated
+
 from zmtransform.analysis import analyze_directory_to_workbook
 
-
-from mutmut.mutation.trampoline import wrap_in_trampoline as _mutmut_mutated, MutantDict
 mutants_x_build_parser__mutmut: MutantDict = {}  # type: ignore
 
 

@@ -1,10 +1,10 @@
 """Tkinter user interface for ZMTransform."""
 
-from __future__ import annotations #permette di riferirsi a classi presenti anche più avanti
+from __future__ import annotations  #permette di riferirsi a classi presenti anche più avanti
 
+import platform
 import queue
 import threading
-import platform
 import tkinter as tk
 from pathlib import Path
 from tkinter import filedialog, scrolledtext, ttk
@@ -15,10 +15,11 @@ if platform.system == "Windows":
 else:
     windll = None
 
+from mutmut.mutation.trampoline import MutantDict
+from mutmut.mutation.trampoline import wrap_in_trampoline as _mutmut_mutated
+
 from zmtransform.analysis import analyze_measurements, create_result_workbook, find_input_files
 
-
-from mutmut.mutation.trampoline import wrap_in_trampoline as _mutmut_mutated, MutantDict
 mutants_xǁZincAppǁ__init____mutmut: MutantDict = {}  # type: ignore
 mutants_xǁZincAppǁwrite_log__mutmut: MutantDict = {}  # type: ignore
 mutants_xǁZincAppǁselect_directory__mutmut: MutantDict = {}  # type: ignore
@@ -8010,7 +8011,7 @@ class ZincApp:
 
             self.messages.put(("progress", "100"))
             self.messages.put(("log", f"Elaborazione terminata: {output_file}"))
-        except Exception as exc:  # pylint: disable=broad-exception-caught
+        except Exception:  # pylint: disable=broad-exception-caught
             self.messages.put(None)
         finally:
             self.messages.put(("done", ""))
