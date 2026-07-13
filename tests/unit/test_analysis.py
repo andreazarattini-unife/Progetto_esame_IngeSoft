@@ -19,7 +19,7 @@ from zmtransform.analysis import (
 )
 from zmtransform.models import AnalysisRow
 
-#Testo singola unità di calcolo
+
 @pytest.mark.unit
 def test_read_measurement_file_calculates_summary(tmp_path, workbook_factory):
     #costruisco il percorso di un nuovo excel fittizio
