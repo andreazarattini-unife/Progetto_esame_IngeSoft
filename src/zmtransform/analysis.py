@@ -40,8 +40,8 @@ def find_input_files(input_dir: str | Path) -> tuple[list[Path], list[Path]]:
     """Mette in ordine gli excel di BS e TS contenuti nella cartella passata come parametro"""
     base_dir = Path(input_dir)
     return (
-        sorted((base_dir / "BS").glob("*.xlsx")),
-        sorted((base_dir / "TS").glob("*.xlsx")),
+        sorted((base_dir / "BS").glob("*.xlsx")), #qui vado a ordinre i file excel di BS
+        sorted((base_dir / "TS").glob("*.xlsx")), #qui vado a fare la stessa cosa per TS
     )
 
 
