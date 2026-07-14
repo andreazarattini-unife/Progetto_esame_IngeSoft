@@ -8,7 +8,12 @@ import threading
 import tkinter as tk
 from pathlib import Path
 from tkinter import filedialog, scrolledtext, ttk
-from zmtransform.analysis import analyze_measurements, create_result_workbook, find_input_files
+
+from zmtransform.analysis import (
+    analyze_measurements,
+    create_result_workbook,
+    find_input_files,
+)
 
 WINDLL = None
 
