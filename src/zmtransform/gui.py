@@ -8,30 +8,27 @@ import threading
 import tkinter as tk
 from pathlib import Path
 from tkinter import filedialog, scrolledtext, ttk
+from zmtransform.analysis import analyze_measurements, create_result_workbook, find_input_files
+
+WINDLL = None
 
 #Robusto rispetto al tipo di OS
-if platform.system == "Windows":
-    from ctypes import windll
-else:
-    windll = None
+if platform.system() == "Windows": # pylint: disable=comparison-with-callable
+    from ctypes import windll as WINDLL
 
-from zmtransform.analysis import analyze_measurements, create_result_workbook, find_input_files
 
 
 class ZincApp:
     """Desktop application used to run zinc measurement analysis."""
-
-    #Si è impostata come applicazione "principale" la classe ZincApp, la quale fa partire la parte 
+    #Si è impostata come applicazione "principale" la classe ZincApp, la quale fa partire la parte
     #grafica. Creato il botttone "selectdirectory", esso fa partire a catena tutto il giro di elaborazione
     #dei dati.
-    
     #Creo una classe che contiene i dati della GUI, pulsanti, stato dell'applicazione e funzioni associate
     def __init__(self, root: tk.Tk) -> None: #Costruttore
         self.root = root
         #Il thread di analisi non può modificare direttamente la finestra
         #principale Tkinter, quindi manda dei messaggi
-        self.messages: queue.Queue[tuple[str, str]] = queue.Queue() 
-
+        self.messages: queue.Queue[tuple[str, str]] = queue.Queue()
         self.root.title("ZMTransform")
         self.root.geometry("1000x800")
 
@@ -78,8 +75,7 @@ class ZincApp:
             self.write_log("Nessuna cartella selezionata.")
             return
 
-        #Chiedo già all'inizio dell'applicazione dove salvare il file dei 
-        #risultati all'utente
+        #Chiedo già all'inizio dell'applicazione dove salvare il file dei risultati all'utente
         output_file = filedialog.asksaveasfilename(
             title="Salva il file con nome",
             initialfile="Misurazioni_Zinco.xlsx",
@@ -153,10 +149,10 @@ class ZincApp:
 
 def configure_windows_dpi() -> None:
     """Improve Tkinter rendering on Windows when the API is available."""
-    if windll is None:
-        return
     try:
-        windll.shcore.SetProcessDpiAwareness(1)
+        if WINDLL is None:
+            return
+        WINDLL.shcore.SetProcessDpiAwareness(1)
     except (AttributeError, OSError):
         pass
 

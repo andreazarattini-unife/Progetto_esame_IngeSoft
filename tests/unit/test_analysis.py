@@ -30,7 +30,7 @@ def test_read_measurement_file_calculates_summary(tmp_path, workbook_factory):
     #Chiamo la funzione di lettura delle misure
     summary = read_measurement_file(workbook_path)
 
-    #Confronto tutti i valori che leggo con quelli attesi 
+    #Confronto tutti i valori che leggo con quelli attesi
     assert summary.coil_id              == "COIL-001"
     assert summary.nominal              == 120.0
     assert summary.total_length         == 3
@@ -86,7 +86,7 @@ def test_create_result_workbook_writes_bs_and_ts_columns(tmp_path, workbook_fact
     assert sheet["K2"].value == 50.0
 
 #PROPERTY-BASED TESTING
-#funzione di test che evidenzia proprietà che devono sempre essere rispettate. 
+#funzione di test che evidenzia proprietà che devono sempre essere rispettate.
 #vengono generati valori casuali di input da inserire dentro il decoratore given
 @pytest.mark.unit
 @given(
@@ -162,7 +162,3 @@ def test_read_profile_values_are_empty(tmp_path, workbook_factory):
     workbook = openpyxl.load_workbook(workbook_path, read_only=True, data_only=True)
     with pytest.raises(MeasurementFileError):
         read_profile_values(workbook["LengthProfiles"], workbook_path)
-
-
-
-

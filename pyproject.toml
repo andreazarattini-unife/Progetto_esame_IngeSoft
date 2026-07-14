@@ -68,3 +68,6 @@ select = ["E", "F", "I", "B", "UP"]
 
 [tool.mutmut]
 source_path = ["src/zmtransform/analysis.py","cli.py"]
+
+[tool.pylint.format]
+max-line-length = 150
